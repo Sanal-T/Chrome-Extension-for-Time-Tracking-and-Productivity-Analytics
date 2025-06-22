@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Productivity Analytics Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>Productivity Analytics Dashboard</h1>
+            <div class="header-controls">
+                <select id="timeRangeSelector">
+                    <option value="today">Today</option>
+                    <option value="week">This Week</option>
+                    <option value="month">This Month</option>
+                </select>
+                <button id="exportBtn" class="btn btn-export">Export Data</button>
+            </div>
+        </header>
+        
+        <div class="stats-overview">
+            <div class="stat-card productive">
+                <div class="stat-icon">📈</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="totalProductiveTime">0h 0m</div>
+                    <div class="stat-label">Productive Time</div>
+                </div>
+            </div>
+            <div class="stat-card unproductive">
+                <div class="stat-icon">📱</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="totalUnproductiveTime">0h 0m</div>
+                    <div class="stat-label">Unproductive Time</div>
+                </div>
+            </div>
+            <div class="stat-card neutral">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="productivityScore">0%</div>
+                    <div class="stat-label">Productivity Score</div>
+                </div>
+            </div>
+            <div class="stat-card websites">
+                <div class="stat-icon">🌐</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="uniqueWebsites">0</div>
+                    <div class="stat-label">Websites Visited</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="charts-section">
+            <div class="chart-container">
+                <h3>Time Distribution</h3>
+                <canvas id="pieChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Daily Activity</h3>
+                <canvas id="lineChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="detailed-breakdown">
+            <div class="breakdown-section">
+                <h3>Top Productive Websites</h3>
+                <div class="website-list" id="productiveWebsites">
+                    <div class="no-data">No data available</div>
+                </div>
+            </div>
+            <div class="breakdown-section">
+                <h3>Top Unproductive Websites</h3>
+                <div class="website-list" id="unproductiveWebsites">
+                    <div class="no-data">No data available</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="weekly-report" id="weeklyReport">
+            <h3>Weekly Productivity Report</h3>
+            <div class="report-content">
+                <div class="report-summary" id="reportSummary">
+                    Generate your weekly report to see insights and trends.
+                </div>
+                <button id="generateReportBtn" class="btn btn-primary">Generate Report</button>
+            </div>
+        </div>
+        
+        <div class="data-table-section">
+            <h3>Detailed Activity Log</h3>
+            <div class="table-controls">
+                <input type="date" id="dateFilter" />
+                <select id="typeFilter">
+                    <option value="all">All Types</option>
+                    <option value="productive">Productive</option>
+                    <option value="unproductive">Unproductive</option>
+                </select>
+                <button id="clearDataBtn" class="btn btn-danger">Clear All Data</button>
+            </div>
+            <div class="table-container">
+                <table id="activityTable">
+                    <thead>
+                        <tr>
+                            <th>Website</th>
+                            <th>Type</th>
+                            <th>Duration</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="activityTableBody">
+                        <tr>
+                            <td colspan="5" class="no-data">No activity data available</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script src="dashboard.js"></script>
+</body>
+</html>
