@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Productivity Tracker</h1>
+            <div class="status" id="status">
+                <span class="status-dot" id="statusDot"></span>
+                <span id="statusText">Inactive</span>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button id="toggleBtn" class="btn btn-primary">Start Tracking</button>
+            <button id="dashboardBtn" class="btn btn-secondary">Dashboard</button>
+        </div>
+        
+        <div class="current-session" id="currentSession" style="display: none;">
+            <h3>Current Session</h3>
+            <div class="session-info">
+                <div class="session-item">
+                    <span class="label">Website:</span>
+                    <span id="currentWebsite">-</span>
+                </div>
+                <div class="session-item">
+                    <span class="label">Time:</span>
+                    <span id="currentTime">00:00:00</span>
+                </div>
+                <div class="session-item">
+                    <span class="label">Type:</span>
+                    <span id="currentType" class="type-badge">-</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="today-summary">
+            <h3>Today's Summary</h3>
+            <div class="summary-grid">
+                <div class="summary-item productive">
+                    <div class="summary-value" id="productiveTime">0h 0m</div>
+                    <div class="summary-label">Productive</div>
+                </div>
+                <div class="summary-item unproductive">
+                    <div class="summary-value" id="unproductiveTime">0h 0m</div>
+                    <div class="summary-label">Unproductive</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quick-actions">
+            <button id="pauseBtn" class="btn btn-small" style="display: none;">Pause</button>
+            <button id="categoryBtn" class="btn btn-small">Categories</button>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
